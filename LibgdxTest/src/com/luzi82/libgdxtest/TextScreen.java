@@ -4,6 +4,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL10;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
+import com.badlogic.gdx.graphics.g2d.BitmapFontCache;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
 public class TextScreen extends LTScreen {
@@ -12,6 +13,7 @@ public class TextScreen extends LTScreen {
 	private SpriteBatch batch;
 
 	private BitmapFont font;
+	private BitmapFontCache fontCache;
 
 	@Override
 	protected void alloc() {
@@ -22,15 +24,20 @@ public class TextScreen extends LTScreen {
 		batch = new SpriteBatch();
 
 		font = new BitmapFont();
-		font.setColor(0, 0, 0, 1);
+		fontCache = new BitmapFontCache(font);
+		fontCache.setColor(0, 0, 0, 1);
+		fontCache.setText("HelloWorld", 0, 0);
 	}
 
 	@Override
 	protected void free() {
 		batch.dispose();
+		font.dispose();
+		fontCache.dispose();
 		camera = null;
 		batch = null;
 		font = null;
+		fontCache = null;
 	}
 
 	@Override
@@ -40,8 +47,7 @@ public class TextScreen extends LTScreen {
 
 		batch.setProjectionMatrix(camera.combined);
 		batch.begin();
-		font.setColor(0, 0, 0, 1);
-		font.draw(batch, "HelloWorld", 0, 0);
+		fontCache.draw(batch);
 		batch.end();
 	}
 
