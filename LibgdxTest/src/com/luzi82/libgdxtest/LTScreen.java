@@ -18,7 +18,7 @@ public abstract class LTScreen implements Screen {
 			return;
 		if ((width == w) && (height == h))
 			return;
-		System.err.println("w=" + width + " h" + height);
+		System.err.println("w=" + width + " h=" + height);
 		w = width;
 		h = height;
 		System.err.println("free");
