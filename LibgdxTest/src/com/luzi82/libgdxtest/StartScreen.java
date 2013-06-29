@@ -11,10 +11,17 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 
 public class StartScreen implements Screen {
+
+	public LTGame ltGame;
+
 	private OrthographicCamera camera;
 	private SpriteBatch batch;
 	private Texture texture;
 	private Sprite sprite;
+
+	public StartScreen(LTGame ltGame) {
+		this.ltGame = ltGame;
+	}
 
 	@Override
 	public void resume() {
