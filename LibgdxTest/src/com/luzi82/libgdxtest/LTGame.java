@@ -22,6 +22,7 @@ public class LTGame extends Game implements InputProcessor {
 		screenList.add(new TextScreen());
 		screenList.add(new SpriteCacheScreen());
 		screenList.add(new AnimationSpriteScreen());
+		screenList.add(new FrameBufferScreen());
 
 		mScreenAry = screenList.toArray(new Screen[0]);
 
