@@ -9,7 +9,7 @@ import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 
-public class StartScreen extends LTScreen {
+public class AnimationSpriteScreen extends LTScreen {
 
 	private OrthographicCamera camera;
 	private SpriteBatch batch;
@@ -20,6 +20,8 @@ public class StartScreen extends LTScreen {
 	public void render(float delta) {
 		Gdx.gl.glClearColor(1, 1, 1, 1);
 		Gdx.gl.glClear(GL10.GL_COLOR_BUFFER_BIT);
+
+		sprite.rotate(delta * 30);
 
 		batch.setProjectionMatrix(camera.combined);
 		batch.begin();
@@ -40,7 +42,7 @@ public class StartScreen extends LTScreen {
 		TextureRegion region = new TextureRegion(texture, 0, 0, 512, 275);
 
 		sprite = new Sprite(region);
-		sprite.setSize(0.9f, 0.9f * sprite.getHeight() / sprite.getWidth());
+		sprite.setSize(0.8f, 0.8f * sprite.getHeight() / sprite.getWidth());
 		sprite.setOrigin(sprite.getWidth() / 2, sprite.getHeight() / 2);
 		sprite.setPosition(-sprite.getWidth() / 2, -sprite.getHeight() / 2);
 	}
