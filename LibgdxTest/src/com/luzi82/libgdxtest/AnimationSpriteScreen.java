@@ -16,12 +16,16 @@ public class AnimationSpriteScreen extends LTScreen {
 	private Texture texture;
 	private Sprite sprite;
 
+	float s;
+
 	@Override
 	public void render(float delta) {
 		Gdx.gl.glClearColor(1, 1, 1, 1);
 		Gdx.gl.glClear(GL10.GL_COLOR_BUFFER_BIT);
 
+		s += delta;
 		sprite.rotate(delta * 30);
+		sprite.setScale((float) Math.sin(s));
 
 		batch.setProjectionMatrix(camera.combined);
 		batch.begin();
